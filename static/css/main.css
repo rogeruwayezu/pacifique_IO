@@ -1,0 +1,119 @@
+@import url('normalize.css');
+@import url('home.css');
+
+
+:root{
+    --dark: #424652;
+    --light: #9a9da4;
+    --highlight: #8bc6db;
+    --border: #E9E9E9;
+}
+/* removing padding from being added to the width of the box */
+ 
+*{
+    box-sizing: border-box;
+} 
+body{
+    font-family: 'Lato', sans-serif;    
+}
+
+.wrapper{
+    width: 90%;
+    margin: 0 auto;
+}
+.wrapper_padding{
+    padding: 4rem 0;
+}
+.clearfix::before, .clearfix::after{
+    content: "";
+    display: table;
+}
+
+.clearfix::after{
+    clear: both;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, li {
+    color: var(--dark);
+}
+
+h1{
+    font-size: 2.5rem;
+}
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 1.75rem;
+}
+h4{
+    font-size: 1.375rem;
+}
+h5{
+    font-size: 1.25rem;
+}
+h6{
+    font-size: 1rem;
+}
+p, li{
+    font-size: 1.1rem;
+    line-height: 1.75rem;
+}
+
+p, ul, ol {
+    margin: 0 0 1.6em 0;
+}
+
+#main_navigation{
+    padding: 2.5em 5%;
+    border-bottom: 1px solid var(--border);
+    
+}
+#main_navigation .name{
+        font-weight: 700;
+        font-size: .8em;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        border: 2px solid var(--border);
+        padding: 1em;
+        text-decoration: none;
+        color: var(--dark);
+        float: left;
+    }
+
+#main_navigation  nav{
+        float: right;
+        padding-top: 1rem;
+    }
+
+#main_navigation nav a{
+    color: var(--dark);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+}
+
+#main_footer{
+    padding: 2.5em 5%;
+    border-top: 1px solid var(--border);
+
+}
+#main_footer .copyright{
+    float: left;
+    font-size: .9em;
+    margin: 0;
+
+}
+
+#main_footer nav {
+    float: right;
+}
+#main_footer nav i {
+    color: var(--dark);
+    margin-left: 1em;
+    padding-top: .2em;
+}
+
+#main_footer nav i:hover{
+    color: var(--highlight);
+}
