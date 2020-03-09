@@ -1,0 +1,74 @@
+#posts_wrapper {
+    padding: 3em 0;
+}
+
+#posts_wrapper .post{
+    text-align: center;
+}
+#posts_wrapper .post .date{
+    font-size: .9em;
+    margin: 0;
+}
+#posts_wrapper .post h2{
+    margin-bottom: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+#posts_wrapper .post hr{
+    margin: 3em auto;
+}
+
+#posts_wrapper .post h2 a {
+    text-decoration: none;
+    color: var(--dark);
+}
+
+#posts_wrapper .post h2 a:hover{
+    color: var(--highlight);
+}
+
+/* Pagination */
+
+.pagination::before, .pagination::after {
+    content: " ";
+    display: table;
+}
+
+.pagination::after{
+    clear: both;
+}
+
+.pagination{
+    text-align: center;
+    margin: 0 0 3em 0;
+}
+
+.pagination a, .pagination .previous_page, .pagination .current, .pagination .next_page{
+    padding: .75em 1em;
+    margin: 0 .5em;
+    border-radius: .15em;
+    line-height: 20px;
+    text-decoration: none;
+    background: var(--white);
+    font-weight: 700;
+    font-size: .7em;
+    font-style: normal;
+    color: var(--dark);
+}
+.pagination a:hover, .pagination .previous_page:hover, .pagination .current:hover, .pagination .next_page:hover{
+    background: var(--highlight);
+    color: var(--white);
+}
+
+.pagination .current{
+    background: var(--highlight);
+    color: var(--white);
+}
+.pagination .disabled{
+    color: #c0c0c0;
+}
+.pagination .disabled:hover{
+    color: #c0c0c0;
+    background: var(--white);
+}
