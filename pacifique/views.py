@@ -6,3 +6,9 @@ def home(request):
 
 def articles(request):
     return render(request, 'articles.html')
+
+def article_display(request):
+    return render(request, 'article_display.html')
+
+def contact(request):
+    return render(request, 'contact.html')
