@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+{% load martortags %}
+{% load bootstrap3 %}
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% block styles %}
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {% endblock %}
+</head>
+
+<body>
+
+    {% block content %}
+    <div id="post_show_content" class="skinny_wrapper wrapper_padding">
+        <header>
+            <p class="date">{{article.pub_date}}</p>
+            <h1>{{article.title}}</h1>
+            <hr>
+        </header>
+        <div id="content">
+            <h2>labore et dolore magna aliqua</h2>
+
+            <p>{{article.content}}</p>
+
+        </div>
+        <hr>
+        <div id="share_box">
+            <!-- Make this paragraph below dynamic -->
+            <p>Share OOP in Python</p>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+        </div>
+        <hr>
+    </div>
+
+
+    {% include "main/footer.html" %}
+
+    {%endblock%}
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+{% extends 'main/base.html' %}
+{% load bootstrap3 %}
+{% load static%}
+{% load martortags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% block styles %}
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+
+    <h1 id="page_title">Stuff I've Written</h1>
+    {% for article in articles %}
+    <div id="posts_wrapper" class="skinny_wrapper">
+        <div class="post">
+            <p class="date">{{article.pub_date}}</p>
+            <h2><a href="{% url 'article_display' article.id %}">{{article.title}}</a></h2>
+            <hr>
+        </div>
+
+    </div>
+    {% endfor %}
+
+    <!-- <div class="pagination">
+        <span class="previous_page disabled">Previous</span>
+        <em class="current">1</em>
+        <a rel="next" href="#">2</a>
+        <a class="next_page" href="#">Next</a>
+    </div> -->
+
+    <div class="pagination">
+        <span class="step-links">
+
+            {% if articles.has_previous and articles.has_next%}
+
+            <a href="?page={{ articles.previous_page_number }}">Previous</a>
+            {% for ariticle in articles.paginator.page_range %}
+            {% ifequal ariticle articles.number %}
+
+            <span class="current"><b>{{ ariticle }}</b></span>
+            {% else %}
+            <a href="?page={{ ariticle }}"> {{ ariticle }}</a>
+            {% endifequal %}
+
+            {% endfor %}
+            <a href="?page={{ articles.next_page_number }}">Next</a>
+
+            {%elif articles.has_previous%}
+            <a href="?page={{ articles.previous_page_number }}">Previous</a>
+
+            {% for ariticle in articles.paginator.page_range %}
+            {% ifequal ariticle articles.number %}
+
+            <span class="current"><b>{{ ariticle }}</b></span>
+            {% else %}
+            <a href="?page={{ ariticle }}"> {{ ariticle }}</a>
+            {% endifequal %}
+
+            {% endfor %}
+
+            <span class="previous_page disabled">Next</span>
+
+            {% else %}
+            <span class="previous_page disabled">Previous</span>
+            {% for ariticle in articles.paginator.page_range %}
+            {% ifequal ariticle articles.number %}
+
+            <span class="current"><b>{{ ariticle }}</b></span>
+            {% else %}
+            <a href="?page={{ ariticle }}"> {{ ariticle }}</a>
+            {% endifequal %}
+
+            {% endfor %}
+
+            <a href="?page={{ articles.next_page_number }}">Next</a>
+
+
+            {% endif %}
+
+        </span>
+    </div>
+
+    {% include "main/footer.html" %}
+
+
+    {% endblock %}
+
+</body>
+
+</html>
