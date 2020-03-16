@@ -43,6 +43,26 @@ def new_article(request):
         form = NewArticleForm()
     return render(request, 'main/new_article.html', {"form": form})
 
+@login_required(login_url='login/')
+def update_article(request):
+   current_user=request.user
+   if request.method =='POST':
+       if Article.objects.filter(user_id=current_user).exists():
+           form = ProfileForm(request.POST,request.FILES,instance=Profile.objects.get(user_id = current_user))
+       else:
+           form=ProfileForm(request.POST,request.FILES)
+       if form.is_valid():
+         profile=form.save(commit=False)
+         profile.user=current_user
+         profile.save()
+         return redirect('projects:profile',current_user.id)
+   else:
+       if Profile.objects.filter(user_id = current_user).exists():
+          form=ProfileForm(instance =Profile.objects.get(user_id=current_user))
+       else:
+           form=ProfileForm()
+   return render(request,'profile_form.html',{"form":form})
+
 
 def contact(request):
     return render(request, 'main/contact.html')
