@@ -7,6 +7,10 @@ class NewArticleForm(forms.ModelForm):
         model = Article
         exclude = ['editor', 'pub_date']
 
+class UpdateArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        exclude = ['editor', 'pub_date']
 
 # class NewArticleForm(forms.Form):
 #     title = forms.CharField(label='title', max_length=30)

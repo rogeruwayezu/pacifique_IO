@@ -11,26 +11,23 @@
         <div class="col-1 about homepage_content">
             <h2>About</h2>
             <hr>
-            <p> <strong>ipsum dolor sit amet </strong> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna <a href="http://">aliqua.</a>
+            <p> <strong>Pacifique Roger Uwayezu, </strong> is a Python Fullstack Developer, blogger and content creator.
+                He enjoys reading books and playing<a href="http://"> Basketball.</a>
             </p>
             <p>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                in culpa qui officia deserunt mollit anim id est laborum.
+                He's very conversant in Python and Javascripts. Additionally, he can
+                use different frameworks including Angular Js, Django, Flask and Rails.
+                He has more than 1.5 years of professional coding and has worked on different projects.
             </p>
         </div>
 
         <div class="col-2 homepage_content">
             <h2>Stuff I've Written</h2>
             <hr>
-            <h3><a href="http://">Creating variables in Python</a></h3>
-            <p class="date">February 4th, 2020</p>
-            <h3><a href="http://">Loops in Python</a></h3>
-            <p class="date">March 4th, 2020</p>
-            <h3><a href="http://">OOP in Python</a></h3>
-            <p class="date">April 4th, 2020</p>
+            {% for article in articles %}
+            <h3><a href="{% url 'article_display' article.id %}">{{article.title}}</a></h3>
+            <p class="date">{{article.pub_date}}</p>
+            {% endfor %}
 
         </div>
 

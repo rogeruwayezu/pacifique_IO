@@ -27,12 +27,13 @@
             <hr>
         </header>
         <div id="content">
-            <h2>labore et dolore magna aliqua</h2>
-
-            <p>{{article.content}}</p>
+            <p>{{article.content|safe_markdown}}</p>
 
         </div>
         <hr>
+        {% if user.is_authenticated %}
+        <a href="{% url 'update_article' article.id %}">update article</a>
+        {% endif %}
         <div id="share_box">
             <!-- Make this paragraph below dynamic -->
             <p>Share OOP in Python</p>
