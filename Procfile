@@ -1,0 +1,1 @@
+web: gunicorn pacifique_blog.wsgi --log-file -
